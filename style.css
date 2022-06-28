@@ -1,0 +1,59 @@
+header{
+  
+}
+
+.a{
+  background: #EFF2F5;
+  width: 500px;
+  height: 281px;
+  border-radius: 24px;
+  top: 198px;
+  left: 80px;
+  position: absolute;
+  z-index: 1;
+}
+.aaa{
+  text-size-adjust: 60px;
+  top: 279px;
+  left: 142px;
+  position: absolute;
+  z-index: 2;
+  
+}
+
+.aa{
+  width: 376px;
+  height: 29px;
+  top: 238px;
+  left: 142px;
+  position: absolute;
+  z-index: 3;
+  color: #0071BC;
+  font-size: ;
+}
+
+.no{
+  position: absolute;
+  top: 635px;
+  left: 126px;
+}
+
+
+header{
+  display: flex;
+  width: 1440px;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.R-header{
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.SNS{
+  display: flex;
+  gap: 16px;
+}
