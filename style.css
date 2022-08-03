@@ -1,59 +1,280 @@
-header{
-  
+body{
+  position: relative;
 }
 
-.a{
-  background: #EFF2F5;
-  width: 500px;
-  height: 281px;
-  border-radius: 24px;
-  top: 198px;
-  left: 80px;
-  position: absolute;
-  z-index: 1;
-}
-.aaa{
-  text-size-adjust: 60px;
-  top: 279px;
-  left: 142px;
-  position: absolute;
-  z-index: 2;
-  
-}
 
-.aa{
-  width: 376px;
-  height: 29px;
-  top: 238px;
-  left: 142px;
-  position: absolute;
-  z-index: 3;
-  color: #0071BC;
-  font-size: ;
-}
-
-.no{
-  position: absolute;
-  top: 635px;
-  left: 126px;
-}
 
 
 header{
   display: flex;
-  width: 1440px;
   height: 80px;
   justify-content: space-between;
   align-items: center;
+  padding:0px 15px ;
+  background-color: white;
 }
 
 .R-header{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 32px;
+
 }
 
 .SNS{
   display: flex;
   gap: 16px;
 }
+
+.main{
+  text-align: center;
+}
+
+.hero{
+  height: 662px;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.container{
+  display: flex;
+  height: 680px;
+  position: relative;
+}
+.slogan{
+  background-color: rgb(212, 212, 212);
+  border-radius: 16px;
+  width: 500px;
+  height: 300px;
+  align-self: center;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  display: inline-block;
+  left: 80px;
+}
+
+.img-hero{
+  z-index: 1;
+  border-radius: 30px;
+  left: 464px;
+  position: relative;
+  display: block;
+  height: 100%;
+  position: absolute;
+}
+
+
+.slogan-small{
+  color: blue;
+  padding-top: 50px;
+  
+}
+
+.slogan-big{
+  font-weight: 900;
+  font-size: 50px;
+  padding-left: 62px;
+  padding-top: 15px;
+}
+
+.scroll{
+  color: grey;
+  bottom: 10px;
+  position: relative;
+  left: 126px;
+  top: 650px;
+  display: inline-block;
+}
+
+.de{
+  text-align: center;
+  padding: 0px 24px;
+  margin: 0 auto;
+}
+
+
+.de-theme-jp{
+  font-weight: bold;
+}
+
+.de-theme-en{
+  margin-top: 16px;
+  color: blue;
+  margin-bottom: 42px;
+}
+
+.de-de{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 42px;
+}
+
+.de-de-left{
+  border-radius: 10px;
+  width: 40%;
+}
+
+.de-de-right{
+  width: 40%;
+}
+
+.line{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.line-container{
+  width: 984px;
+  height: 384px;
+  background-image: url(./img/bg-line.jpg);
+  background-size: cover;
+  margin: 0 auto;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.line-theme{
+  display: flex;
+  position: relative;
+  height: 65px;
+  padding-top: 70px;
+}
+
+.line-theme-con{
+  color: white;
+  display: block;
+  align-items: center;
+  position: absolute;
+  left: 375px;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.line-icon{
+  z-index: 1000;
+  height: 40px;
+  width: 40px;
+  display: block;
+  position: absolute;
+  left: 327px;
+}
+
+.line-de{
+  color: white;
+  font-size: 14px;
+  padding-top: 16px;
+  padding-bottom: 50px;
+  z-index: 1000;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line-add{
+  background-color: white;
+  width: 320px;
+  height: 50px;
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  text-decoration: none;
+  top: 150px;
+  left: 333px
+}
+
+
+.line-add-de{
+  position: absolute;
+  color: black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.line-add-share{
+  right: 8px;
+  top: 12px;
+  position: absolute;
+}
+
+
+.line-inner::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  height: 384px;
+  width: 984px;
+  content: "";
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  border-radius: 30px;
+}
+
+footer{
+  text-align: center;
+  padding: 56px 24px;
+  border-top: 1px solid #000;
+}
+
+.footer-logo{
+  padding-bottom: 24px;
+}
+
+.footer-sns{
+  align-items: center;
+  margin-top:32px ;
+}
+
+.line-fixed{
+  display: flex;
+  gap: 8px;
+  width: 400px;
+  height: 80px;
+  background-color:#5FDF5B ;
+  border-radius: 16px;
+  text-align: center;
+  justify-content: space-around;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  text-decoration: none;
+}
+
+.line-fixed-icon{
+  z-index: 1000;
+  padding: 8px;
+  background-color: aliceblue;
+  background: radial-gradient(white,#5FDF5B 50%);
+}
+
+.line-fixed-de{
+  align-self: center;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.line-fixed-share{
+  padding: 24px;
+}
+
+.copywriter{
+  text-align: center;
+  border-top: 1px solid black;
+  padding: 38px 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
