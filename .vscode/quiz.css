@@ -1,0 +1,73 @@
+header{
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding:0px 15px ;
+  background-color: white;
+}
+
+.R-header{
+  display: flex;
+  justify-content: space-around;
+  gap: 32px;
+
+}
+
+.l-container {
+  margin: 0 auto;
+  max-width: 1032px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.SNS{
+  display: flex;
+  gap: 16px;
+}
+
+.hero{
+  background-image: url(./img_files/bg-hero.jpg);
+  padding: 110px 0 76px;
+  background-size: cover;
+}
+
+.hero-big{
+  font-size: 60px;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-small{
+  font-size: 19px;
+  font-weight: 700;
+  color: white;
+}
+
+main{
+  display: block;
+  padding-top: 80px;
+}
+
+.Q-box{
+  width: 80px;
+  height: 70px;
+  background-color: #0071BC;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 20px;
+  size: 36px;
+  font-weight: 700;
+  color: white;
+}
+
+.A-option li{
+  color: red;
+
+}
+
+.Q-sentence{
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 24px;
+}
