@@ -46,7 +46,6 @@ header{
 
 main{
   display: block;
-  padding-top: 80px;
 }
 
 .Q-box{
@@ -55,15 +54,11 @@ main{
   background-color: #0071BC;
   text-align: center;
   line-height: 70px;
-  border-radius: 20px;
-  size: 36px;
+  border-radius: 15px;
+  font-size: 36px;
   font-weight: 700;
   color: white;
-}
-
-.A-option li{
-  color: red;
-
+  margin-top: 120px;
 }
 
 .Q-sentence{
@@ -71,3 +66,57 @@ main{
   font-weight: bold;
   margin-top: 24px;
 }
+
+.Q-img{
+  margin: 65px 150px;
+}
+
+.A-box{
+  width: 60px;
+  height: 70px;
+  background-color: #e34e70;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 15px;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+}
+
+.A-option{
+  margin-top: 30px;
+  display: flex;
+  gap: 24px;
+}
+
+.A-option li{
+  border: solid 5px #eee;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.colum{
+  margin-top: 30px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 30px;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.colum-img{
+  line-height: 14px;
+}
+
+.colum-de{
+  font-weight: bold;
+}
+
+
+
