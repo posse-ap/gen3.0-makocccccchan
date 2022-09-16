@@ -106,6 +106,10 @@ main{
   justify-content: space-between;
 }
 
+.A-option li:hover{
+  background-color: rgb(232, 227, 227);
+}
+
 .colum{
   margin-top: 30px;
   margin-bottom: 24px;
