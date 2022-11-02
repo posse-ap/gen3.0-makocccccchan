@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/styles/recet.css">
+  <link rel="stylesheet" href="./assets/styles/common.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="header-logo"><img src="./assets/img/logo.svg" alt=""></div>
+      <div class="header-th-week">4th week</div>
+    </div>
+    <div class="header-log-button">記録・投稿</div>
+  </header>
+
+  <main>
+    <div class="log">
+      <div class="log-hour" id="A">
+        <div class="hour-theme">Today</div>
+        <div class="hour-count">3</div>
+        <div class="hour-hour">hour</div>
+      </div>
+      <div class="log-hour" id="B">
+        <div class="hour-theme">Month</div>
+        <div class="hour-count">120</div>
+        <div class="hour-hour">hour</div>
+      </div>
+      <div class="log-hour" id="C">
+        <div class="hour-theme">Total</div>
+        <div class="hour-count">1348</div>
+        <div class="hour-hour">hour</div>
+      </div>
+
+      <div class="log-chart" id="D">
+        <canvas id="var-chart" class="var-chart" width="550px" height="350px"></canvas>
+      </div>
+
+      <div class="log-graph" id="E">
+        <div class="D-theme">　　学習言語</div>
+        <canvas id="language-chart" width="245px" height="230px">
+        </canvas>
+        <div class="language-name">
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+          <div class="1-1"></div>
+      </div>
+      </div>
+
+      <div class="log-graph" id="F">
+        <div class="D-theme">　学習コンテンツ</div>
+        <canvas id="content-chart" class="content-shart" width="245px" height="230px"></canvas>
+      </div>
+    </div>
+            
+  </main> 
+
+
+  
+
+
+
+
+
+  <footer >
+    <div class="footer-date">
+      < 2020年 10月 >
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+  <script>
+
+    // 円グラフ
+
+      var context = document.querySelector("#language-chart").getContext('2d')
+
+      
+      new Chart(context, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            backgroundColor: ["#00BFFF", "#1E90FF", "#6495ED", "#7B68EE", "#4169E1", "#0000FF", "#0000CD", "#00BFFF"],
+            data: [27, 24, 16, 12, 8, 8, 4, 1]
+          }]
+        },
+        options: {
+          responsive: false,
+        }
+      });
+
+
+      var context = document.querySelector("#content-chart").getContext('2d')
+      new Chart(context, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            backgroundColor: ["#00BFFF", "#1E90FF", "#6495ED",],
+            data: [ 42, 33, 25]
+          }]
+        },
+        options: {
+          responsive: false,
+        }
+      });
+
+      //棒グラフ
+      var context = document.querySelector("#var-chart").getContext('2d')
+        new Chart(context, {
+          type: 'bar',
+          data: {
+            labels: ['', '2', '', '4', '', '8','', '10', '', '12', '', '14','', '16', '', '18', '', '20','', '22', '', '24', '', '26', '', '28', '', '30',],
+            datasets: [{
+              label: "",
+              data: [6, 3, 4, 2, 5, 6, 5, 2, 8, 2, 7, 2, 7, 2, 4, 5, 7, 5, 7, 6, 8, 2, 5, 2, 1, 2, 4, 2, 3, 2,],
+              backgroundColor: ['#6495ED', '#7B68EE', '#00BFFF']
+            }],
+          },
+          options: {
+            responsive: false
+          }
+        })
+
+  </script>
+</body>
+</html>
