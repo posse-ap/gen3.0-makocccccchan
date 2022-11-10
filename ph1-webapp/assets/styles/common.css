@@ -29,6 +29,7 @@ header{
   margin-top: 12px;
   line-height: 40px;
   border-radius: 20px;
+  border: none;
 }
 
 .log{
@@ -113,4 +114,10 @@ header{
 
 .language-name{ 
   display: grid;
+}
+
+.modal{
+  background-color: white;
+  width: 700px;
+  height: 400px;
 }
