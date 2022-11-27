@@ -90,13 +90,13 @@
             <div class="post__contents">
               <h3 class="post__lead">学習日</h3>
               <label for="studied-date">
-                <input type="text" id="datepicker" />
+                <input class="text-box" type="text" id="datepicker" />
               </label>
             </div>
             <div class="post__learnings">
-              <h3 class="post__lead">学習コンテンツ（複数選択可）</h3>
+              <h3 class="post__lead lead-content">学習コンテンツ（複数選択可）</h3>
               <ul class="post__learnings__items">
-                <li class="post__learnings__item">
+                <li class="post__learnings__item" id="I-A">
                   <label class="checkbox" for="Nyobiko">
                     <input
                       class="checkbox__input"
@@ -107,7 +107,7 @@
                     <span class="checkbox__text">N予備校</span>
                   </label>
                 </li>
-                <li class="post__learnings__item">
+                <li class="post__learnings__item " id="I-B">
                   <label class="checkbox" for="dotinstall">
                     <input
                       class="checkbox__input"
@@ -118,8 +118,8 @@
                     <span class="checkbox__text">ドットインストール</span>
                   </label>
                 </li>
-                <li class="post__learnings__item">
-                  <label class="checkbox" for="POSSEkadai">
+                <li class="post__learnings__item" id="I-C">
+                  <label class="" for="POSSEkadai">
                     <input
                       class="checkbox__input"
                       type="checkbox"
@@ -133,7 +133,7 @@
             </div>
             <div class="post__learnings">
               <h3 class="post__lead">学習言語(複数選択可)</h3>
-              <ul class="post__learnings__items">
+              <ul class="post__learnings__languages">
                 <li class="post__learnings__item">
                   <label class="checkbox" for="html">
                     <input
@@ -200,8 +200,8 @@
                     <span class="checkbox__text">SHELL</span>
                   </label>
                 </li>
-                <li class="post__learnings__item">
-                  <label class="checkbox" for="others">
+                <li class="post__learnings__item" id="L-7">
+                  <label class="" for="others" id="L-7">
                     <input
                       class="checkbox__input"
                       type="checkbox"
@@ -218,8 +218,8 @@
           </div>
           <div class="post__right">
             <div class="post__contents">
-              <h3 class="post__lead">学習時間</h3>
-              <label for="studied-time">
+              <h3 class="post__lead ">学習時間</h3>
+              <label for="studied-time" >
                 <input
                   class="post__text"
                   type="text"
@@ -228,29 +228,29 @@
                 />
               </label>
             </div>
-            <div class="post__contents">
-              <h3 class="post__lead">Twitter用コメント</h3>
+            <div class="post__twitter">
+              <h3 class="post__lead twitter-comment">Twitter用コメント</h3>
               <textarea
                 name="comment"
                 id="TwitterComment"
                 class="post__textarea"
                 onkeyup="GetTweet(value)"
               ></textarea>
-              <label class="checkbox checkbox__twitter"  for="twitter">
-                <input
-                  class="checkbox__input checkbox__twitter__input"
-                  type="checkbox"
-                  name="twitter"
-                  id="twitter"
-                  checked
-                />
-                <span class="checkbox__text checkbox__twitter__text" id="TWEET"
-                  >Twitterにシェアする</span
-                >
-              </label>
             </div>
+            <label class="checkbox checkbox__twitter"  for="twitter">
+              <input
+                class="checkbox__input checkbox__twitter__input"
+                type="checkbox"
+                name="twitter"
+                id="twitter"
+                checked
+              />
+              <span class="checkbox__text checkbox__twitter__text" id="TWEET"
+                >Twitterにシェアする</span
+              >
+            </label>
           </div>
-          <button class="button post__button" id="modalPost">記録・投稿</button>
+          <button class="button post__button post-all" id="modalPost">記録・投稿</button>
         </div>
 
         <div class="post--loader" id="modalLoading">
@@ -258,9 +258,7 @@
         </div>
 
         <div class="post--completion" id="postCompletion">
-          <div class="post--completion__lead">AWESOME!</div>
-          <i class="fa-solid fa-circle-check post--completion__icon"></i>
-          <p class="post--completion__text">記録・投稿<br />完了しました</p>
+          <img src="./assets/img/awesom.png" alt=""class="awsome-img">
         </div>
       </section>
     </main>
