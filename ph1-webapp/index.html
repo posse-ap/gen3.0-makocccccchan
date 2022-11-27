@@ -1,135 +1,455 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./assets/styles/recet.css">
-  <link rel="stylesheet" href="./assets/styles/common.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
-</head>
-<body>
-  <header>
-    <div class="header-left">
-      <div class="header-logo"><img src="./assets/img/logo.svg" alt=""></div>
-      <div class="header-th-week">4th week</div>
-    </div>
-    <button class="header-log-button" data-target="#modalPost">記録・投稿</button>
-  </header>
-
-  <main>
-
-    <div class="log">
-      <div class="log-hour" id="A">
-        <div class="hour-theme">Today</div>
-        <div class="hour-count">3</div>
-        <div class="hour-hour">hour</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/recet.css" />
+    <link rel="stylesheet" href="./assets/styles/common.css" />
+    <script
+      type="text/javascript"
+      src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="./assets/scripts/modal.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <div class="header-logo">
+          <img src="./assets/img/logo.svg" alt="" />
+        </div>
+        <div class="header-th-week">4th week</div>
       </div>
-      <div class="log-hour" id="B">
-        <div class="hour-theme">Month</div>
-        <div class="hour-count">120</div>
-        <div class="hour-hour">hour</div>
+      <button id="openModal" class="header-log-button" data-target="#modalPost">
+        記録・投稿
+      </button>
+    </header>
+
+    <main>
+      <div class="log">
+        <div class="log-hour" id="A">
+          <div class="hour-theme">Today</div>
+          <div class="hour-count">3</div>
+          <div class="hour-hour">hour</div>
+        </div>
+        <div class="log-hour" id="B">
+          <div class="hour-theme">Month</div>
+          <div class="hour-count">120</div>
+          <div class="hour-hour">hour</div>
+        </div>
+        <div class="log-hour" id="C">
+          <div class="hour-theme">Total</div>
+          <div class="hour-count">1348</div>
+          <div class="hour-hour">hour</div>
+        </div>
+
+        <div class="log-chart" id="D">
+          <canvas
+            id="var-chart"
+            class="var-chart"
+            width="550px"
+            height="350px"
+          ></canvas>
+        </div>
+
+        <div class="log-graph" id="E">
+          <div class="D-theme">　　学習言語</div>
+          <canvas id="language-chart" width="245px" height="230px"> </canvas>
+          <div class="language-name">
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+            <div class="1-1"></div>
+          </div>
+        </div>
+
+        <div class="log-graph" id="F">
+          <div class="D-theme">　学習コンテンツ</div>
+          <canvas
+            id="content-chart"
+            class="content-shart"
+            width="245px"
+            height="230px"
+          ></canvas>
+        </div>
       </div>
-      <div class="log-hour" id="C">
-        <div class="hour-theme">Total</div>
-        <div class="hour-count">1348</div>
-        <div class="hour-hour">hour</div>
-      </div>
 
-      <div class="log-chart" id="D">
-        <canvas id="var-chart" class="var-chart" width="550px" height="350px"></canvas>
-      </div>
+      <section class="modal" id="modalArea">
+        <!-- <div class="modal-background" id="modalBg"></div> -->
 
-      <div class="log-graph" id="E">
-        <div class="D-theme">　　学習言語</div>
-        <canvas id="language-chart" width="245px" height="230px">
-        </canvas>
-        <div class="language-name">
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-          <div class="1-1"></div>
-      </div>
-      </div>
+        <div class="post__close" id="closeModal">x</div>
+        <div class="post__inner" id="modalContent">
+          <div class="post__left">
+            <div class="post__contents">
+              <h3 class="post__lead">学習日</h3>
+              <label for="studied-date">
+                <input type="text" id="datepicker" />
+              </label>
+            </div>
+            <div class="post__learnings">
+              <h3 class="post__lead">学習コンテンツ（複数選択可）</h3>
+              <ul class="post__learnings__items">
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="Nyobiko">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="content"
+                      id="Nyobiko"
+                    />
+                    <span class="checkbox__text">N予備校</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="dotinstall">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="content"
+                      id="dotinstall"
+                    />
+                    <span class="checkbox__text">ドットインストール</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="POSSEkadai">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="content"
+                      id="POSSEkadai"
+                    />
+                    <span class="checkbox__text">POSSE課題</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="post__learnings">
+              <h3 class="post__lead">学習言語(複数選択可)</h3>
+              <ul class="post__learnings__items">
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="html">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="html"
+                    />
+                    <span class="checkbox__text">HTML</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="css">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="css"
+                    />
+                    <span class="checkbox__text">CSS</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="php">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="php"
+                    />
+                    <span class="checkbox__text">PHP</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="laravel">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="laravel"
+                    />
+                    <span class="checkbox__text">Laravel</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="sql">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="sql"
+                    />
+                    <span class="checkbox__text">SQL</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="shell">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="shell"
+                    />
+                    <span class="checkbox__text">SHELL</span>
+                  </label>
+                </li>
+                <li class="post__learnings__item">
+                  <label class="checkbox" for="others">
+                    <input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="language"
+                      id="others"
+                    />
+                    <span class="checkbox__text"
+                      >情報システム基礎知識（その他）</span
+                    >
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="post__right">
+            <div class="post__contents">
+              <h3 class="post__lead">学習時間</h3>
+              <label for="studied-time">
+                <input
+                  class="post__text"
+                  type="text"
+                  name="time"
+                  id="studied-time"
+                />
+              </label>
+            </div>
+            <div class="post__contents">
+              <h3 class="post__lead">Twitter用コメント</h3>
+              <textarea
+                name="comment"
+                id="TwitterComment"
+                class="post__textarea"
+                onkeyup="GetTweet(value)"
+              ></textarea>
+              <label class="checkbox checkbox__twitter"  for="twitter">
+                <input
+                  class="checkbox__input checkbox__twitter__input"
+                  type="checkbox"
+                  name="twitter"
+                  id="twitter"
+                  checked
+                />
+                <span class="checkbox__text checkbox__twitter__text" id="TWEET"
+                  >Twitterにシェアする</span
+                >
+              </label>
+            </div>
+          </div>
+          <button class="button post__button" id="modalPost">記録・投稿</button>
+        </div>
 
-      <div class="log-graph" id="F">
-        <div class="D-theme">　学習コンテンツ</div>
-        <canvas id="content-chart" class="content-shart" width="245px" height="230px"></canvas>
-      </div>
-    </div>
+        <div class="post--loader" id="modalLoading">
+          <div class="circle"></div>
+        </div>
 
-    
-    
-  </main> 
+        <div class="post--completion" id="postCompletion">
+          <div class="post--completion__lead">AWESOME!</div>
+          <i class="fa-solid fa-circle-check post--completion__icon"></i>
+          <p class="post--completion__text">記録・投稿<br />完了しました</p>
+        </div>
+      </section>
+    </main>
 
+    <footer>
+      <div class="footer-date">< 2020年 10月 ></div>
+    </footer>
 
-  <footer >
-    <div class="footer-date">
-      < 2020年 10月 >
-    </div>
-  </footer>
+    <script>
+      // 円グラフ
 
+      var context = document.querySelector("#language-chart").getContext("2d");
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
-  <script>
-
-    // 円グラフ
-
-      var context = document.querySelector("#language-chart").getContext('2d')
-
-      
       new Chart(context, {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
-          datasets: [{
-            backgroundColor: ["#00BFFF", "#1E90FF", "#6495ED", "#7B68EE", "#4169E1", "#0000FF", "#0000CD", "#00BFFF"],
-            data: [27, 24, 16, 12, 8, 8, 4, 1]
-          }]
+          labels: [
+            "HTML",
+            "CSS",
+            "PHP",
+            "JavaScript",
+            "SHELL",
+            "SQL",
+            "Laravel",
+            "その他",
+          ],
+          datasets: [
+            {
+              backgroundColor: [
+                "#00BFFF",
+                "#1E90FF",
+                "#6495ED",
+                "#7B68EE",
+                "#4169E1",
+                "#0000FF",
+                "#0000CD",
+                "#00BFFF",
+              ],
+              data: [27, 24, 16, 12, 8, 8, 4, 1],
+            },
+          ],
         },
         options: {
           responsive: false,
-        }
+          plugins: {
+            datalabels: {
+              font: {
+                size: 13,
+              },
+              formatter: function (value, context) {
+                return value.toString() + "%";
+              },
+            },
+            legend: { position: "bottom" },
+          },
+        },
+        plugins: [ChartDataLabels],
       });
 
-
-      var context = document.querySelector("#content-chart").getContext('2d')
+      var context = document.querySelector("#content-chart").getContext("2d");
       new Chart(context, {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
-          datasets: [{
-            backgroundColor: ["#00BFFF", "#1E90FF", "#6495ED",],
-            data: [ 42, 33, 25]
-          }]
+          labels: ["N予備校", "課題", "どっとインストール"],
+          datasets: [
+            {
+              backgroundColor: ["#00BFFF", "#1E90FF", "#6495ED"],
+              data: [42, 33, 25],
+            },
+          ],
         },
         options: {
           responsive: false,
-        }
+          plugins: {
+            datalabels: {
+              font: {
+                size: 13,
+              },
+              formatter: function (value, context) {
+                return value.toString() + "%";
+              },
+            },
+            legend: { position: "bottom" },
+          },
+        },
+        plugins: [ChartDataLabels],
       });
 
       //棒グラフ
-      var context = document.querySelector("#var-chart").getContext('2d')
-        new Chart(context, {
-          type: 'bar',
-          data: {
-            labels: ['', '2', '', '4', '', '8','', '10', '', '12', '', '14','', '16', '', '18', '', '20','', '22', '', '24', '', '26', '', '28', '', '30',],
-            datasets: [{
+      var context = document.querySelector("#var-chart").getContext("2d");
+      new Chart(context, {
+        type: "bar",
+        data: {
+          labels: [
+            "",
+            "2",
+            "",
+            "4",
+            "",
+            "8",
+            "",
+            "10",
+            "",
+            "12",
+            "",
+            "14",
+            "",
+            "16",
+            "",
+            "18",
+            "",
+            "20",
+            "",
+            "22",
+            "",
+            "24",
+            "",
+            "26",
+            "",
+            "28",
+            "",
+            "30",
+          ],
+          datasets: [
+            {
               label: "",
-              data: [6, 3, 4, 2, 5, 6, 5, 2, 8, 2, 7, 2, 7, 2, 4, 5, 7, 5, 7, 6, 8, 2, 5, 2, 1, 2, 4, 2, 3, 2,],
-              backgroundColor: ['#6495ED', '#7B68EE', '#00BFFF']
-            }],
+              data: [
+                6, 3, 4, 2, 5, 6, 5, 2, 8, 2, 7, 2, 7, 2, 4, 5, 7, 5, 7, 6, 8,
+                2, 5, 2, 1, 2, 4, 2, 3, 2,
+              ],
+              backgroundColor: ["#6495ED", "#7B68EE", "#00BFFF"],
+            },
+          ],
+        },
+        options: {
+          responsive: false,
+          scales: {
+            y: { grid: { display: false } },
+            x: {
+              grid: { display: false },
+              ticks: {
+                color: "#bdd1e1",
+                autoSkip: false,
+              },
+            },
           },
-          options: {
-            responsive: false
-          }
-        })
+        },
+      });
 
-  </script>
+      $(function () {
+        $("#openModal").click(function () {
+          $("#modalArea").fadeIn();
+        });
+        $("#closeModal , #modalBg").click(function () {
+          $("#modalArea").fadeOut();
+        });
+      });
+
+      // to-modalLoadingと言うidをもつDOMを取得する
+  const toModalLoading = document.getElementById('modalPost');
+
+// toModalLoadingがclickイベントを拾えるようにする
+toModalLoading.addEventListener('click', ()=>{
+    $('#modalContent').css("display", "none")
+    ;
+    $('#modalLoading').css("display", "block");
+
+    // 2秒後にtoModalSuccessを呼び出す
+    setTimeout(function(){
+      $('#modalLoading').css("display", "none")
+    ;
+    $('#postCompletion').css("display", "block");
+    }, 2000)
+})
+
+function GetTweet(){
+  const TwitterPost = document.getElementById('TwitterComment').value;
+  TWEET.innerHTML = '<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + TwitterPost + '" target="_blank">Twitterにシェアする</a>'
+
+}
 
 
-</body>
+
+
+      $("#datepicker").datepicker();
+
+      
+    </script>
+
+    <script></script>
+  </body>
 </html>
