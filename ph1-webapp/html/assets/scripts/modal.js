@@ -1,5 +1,16 @@
 'use strict'
+const contents = JSON.parse('<?= $content ?>');
 
+  const languages = JSON.parse('<?= $language ?>');
+
+  const study_times = JSON.parse('<?= $study_times ?>');
+
+  const study_date = JSON.parse('<?= $study_date ?>');
+
+  const contenttimes = JSON.parse('<?= $content_times ?>');
+  
+  const languagetimes = JSON.parse('<?= $language_times ?>');
+  
 
 // 円グラフ
 

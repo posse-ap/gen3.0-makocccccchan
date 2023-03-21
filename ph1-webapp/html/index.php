@@ -25,6 +25,51 @@ $monthly= $dbh->query("select sum(study_time) FROM records WHERE study_date BETW
 // var_dump($dbh);
 // var_dump($daily);
 
+$content_stmt = $pdo->query('SELECT content FROM contents');
+$content = $content_stmt->fetchAll();
+$content = json_encode($content);
+
+//言語をとってくる
+$language_stmt = $pdo->query('SELECT language FROM languages');
+$language = $language_stmt->fetchAll();
+$language = json_encode($language);
+
+//学習時間をとってくる
+$study_times_stmt = $pdo->query(
+  'SELECT study_time FROM studies'
+);
+$study_times = $study_times_stmt->fetchAll();
+$study_times = json_encode($study_times);
+
+//学習日をとってくる
+$study_dates_stmt = $pdo->query(
+  'SELECT study_date FROM studies'
+);
+$study_dates = $study_dates_stmt->fetchAll();
+$study_date = array_map(function($record){
+  return mb_substr($record['study_date'],8,2);
+},$study_dates);
+//mb_substr string切り出す
+$study_date = json_encode($study_date);
+
+//コンテンツごとに学習時間をとってくる
+$content_times_stmt = $pdo->query(
+  'SELECT content_id,sum(study_time) as CT FROM studies group by content_id ORDER BY content_id'
+);
+$content_times = $content_times_stmt->fetchAll();
+$content_times = json_encode($content_times);
+
+// 言語ごとに学習時間をとってくる
+$language_times_stmt = $pdo->query(
+  'SELECT language_id,sum(study_time) as LT FROM studies group by language_id ORDER BY language_id'
+);
+$language_times = $language_times_stmt->fetchAll();
+$language_times = json_encode($language_times);
+
+?>
+
+
+
 
 ?>
 
