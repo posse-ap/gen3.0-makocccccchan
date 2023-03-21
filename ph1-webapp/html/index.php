@@ -1,5 +1,31 @@
 <?php
 
+require('./dbconnect.php');
+
+$total = $dbh->query("select sum(study_time) FROM records")->fetchColumn();
+// $total = $dbh->query("select sum(study_time) FROM records")->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($total[0]['sum(study_time)']);
+
+$objDateTime = new DateTime();
+$today = $objDateTime->format('Y-m-d');
+// var_dump("select sum(study_time) FROM records WHERE study_date BETWEEN " . $today . " 00:00:00 AND " . $today . " 23:59:59");
+$daily= $dbh->query("select sum(study_time) FROM records WHERE study_date BETWEEN '" . $today . " 00:00:00' AND '" . $today . " 23:59:59'")->fetchColumn();
+
+$startDate = new DateTime('first day of this month');
+    //月終わり
+$endDate  = new DateTime('last day of this month');
+
+$month_s= $startDate->format('Y-m-d');
+$month_e= $endDate->format('Y-m-d');
+
+
+$monthly= $dbh->query("select sum(study_time) FROM records WHERE study_date BETWEEN '" . $month_s . " 00:00:00' AND '" . $month_e . " 23:59:59'")->fetchColumn();
+
+
+// var_dump($dbh);
+// var_dump($daily);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +63,17 @@
       <div class="log">
         <div class="log-hour" id="A">
           <div class="hour-theme">Today</div>
-          <div class="hour-count">3</div>
+          <div class="hour-count"><?= $daily ?></div>
           <div class="hour-hour">hour</div>
         </div>
         <div class="log-hour" id="B">
           <div class="hour-theme">Month</div>
-          <div class="hour-count">120</div>
+          <div class="hour-count"><?= $monthly ?></div>
           <div class="hour-hour">hour</div>
         </div>
         <div class="log-hour" id="C">
           <div class="hour-theme">Total</div>
-          <div class="hour-count">1348</div>
+          <div class="hour-count"><?= $total ?></div>
           <div class="hour-hour">hour</div>
         </div>
 
