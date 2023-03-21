@@ -1,5 +1,5 @@
 <?php
-echo 'ああ' ;
+
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +9,8 @@ echo 'ああ' ;
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/recet.css" />
-    <link rel="stylesheet" href="../assets/styles/common.css" />
+    <link rel="stylesheet" href="./assets/styles/recet.css" />
+    <link rel="stylesheet" href="./assets/styles/common.css" />
     <script
       type="text/javascript"
       src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
@@ -18,13 +18,13 @@ echo 'ああ' ;
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="./assets/scripts/modal.js"></script>
+    <script src="./assets/scripts/modal.js" defer></script>
   </head>
   <body>
     <header>
       <div class="header-left">
         <div class="header-logo">
-          <img src="../assets/img/logo.svg" alt="" />
+          <img src="./assets/img/logo.svg" alt="" />
         </div>
         <div class="header-th-week">4th week</div>
       </div>
